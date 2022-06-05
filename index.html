@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>EA Data</title>
+
+
+<link rel="stylesheet" href="EA.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  background-color: black;
+}
+</style>
+
+</head>
+
+<body>
+
+
+<h1 class="heading">Elrond Apes Data Center (EADC)</h1>
+
+<img src="https://elrondapes.com/assets/logo.gif" class="eaLogo" alt="EA gif logo" width="30%" height="12.5%">
+</div>
+
+<!--
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'EA twitter followers',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+</script>
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+-->
+
+<script>
+  var request = new XMLHttpRequest()
+
+request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
+request.onload = function () {
+  // Begin accessing JSON data here
+  var data = JSON.parse(this.response)
+
+  if (request.status >= 200 && request.status < 400) {
+    data.forEach(movie => {
+      console.log(movie.title)
+    })
+  } else {
+    console.log('error')
+  }
+}
+
+request.send()
+
+</script>
+
+
+</body>
+</html>
