@@ -19,77 +19,53 @@ body {
 
 </head>
 
+<div class="div1">
+<a href="https://elrondapes.com" target="_blank">
+<img src="https://elrondapes.com/assets/logo.gif" class="eaLogo" alt="EA gif logo" style="max-width: 40%; max-height: 17.5%;" >
+</a>
+</div>
+
+<!-- fix sticky image -->
+
+
+<!--Hey leo, for the borders you can make them different green or red colors depending if up or down-->
+
 <body>
+
+  <div class="div2">
+    <h1 style="font-size: 3vw; font-family: 'Courier New';">General Overview</h1>
+      <div>
+        <h1 class="heading4" style="display: inline-block;"><span class="heading3">Offical identifier: EAPES-8f3c1f</span></h1> 
+        <h1 class="heading4" style="display: inline-block;"><span class="heading3">Royalties: 10%</span></h1> 
+        <h1 class="heading4" style="display: inline-block;"><span class="heading3">Collection size: 10,000</span></h1> 
+        </div>
+        <br>
+        <div>
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Total Volume: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Volume (24h): xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Floor price: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Amount staked: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Total listed: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Total rewards distribution: xyz</span></h1> 
+        </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="div2">
+  <h2 style="font-size: 3vw; color:white; font-family: 'Courier New';">Analytics (Leo, please start with LKmex rewards graph)</h2>
+  </div>
+
+
+
+
+  <script>
+
+  </script>
 
 
 <!--<h1 class="heading">Data Center</h1>-->
-
-
-
-<img src="https://elrondapes.com/assets/logo.gif" class="eaLogo" alt="EA gif logo" style="max-width: 40%; max-height: 17.5%;" >
-</div>
-
-<!--
-<div>
-  <canvas id="myChart"></canvas>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
-
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'EA twitter followers',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-  };
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: {}
-  };
-</script>
-
-<script>
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-</script>
--->
-
-<script>
-  var request = new XMLHttpRequest()
-
-request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
-request.onload = function () {
-  // Begin accessing JSON data here
-  var data = JSON.parse(this.response)
-
-  if (request.status >= 200 && request.status < 400) {
-    data.forEach(movie => {
-      console.log(movie.title)
-    })
-  } else {
-    console.log('error')
-  }
-}
-
-request.send()
-
-</script>
 
 
 </body>
