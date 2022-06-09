@@ -44,9 +44,11 @@ body {
           <h1 class="heading5" style="display: inline-block;"><span class="heading6">Total Volume: xyz</span></h1> 
           <h1 class="heading5" style="display: inline-block;"><span class="heading6">Volume (24h): xyz</span></h1> 
           <h1 class="heading5" style="display: inline-block;"><span class="heading6">Floor price: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Floor price in USDC: xyz</span></h1> 
           <h1 class="heading5" style="display: inline-block;"><span class="heading6">Amount staked: xyz</span></h1> 
           <h1 class="heading5" style="display: inline-block;"><span class="heading6">Total listed: xyz</span></h1> 
           <h1 class="heading5" style="display: inline-block;"><span class="heading6">Total rewards distribution: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6"> Anything else? </span></h1> 
         </div>
   </div>
 
@@ -54,15 +56,48 @@ body {
   <br>
 
   <div class="div2">
-  <h2 style="font-size: 3vw; color:white; font-family: 'Courier New';">Analytics (Leo, please start with LKmex rewards graph)</h2>
+  <h2 style="font-size: 3vw; color:white; font-family: 'Courier New';">Analytics</h2>
+  <h2 style="font-size: 3vw; color:white; font-family: 'Courier New';">Add in graph for LKmex for each</h2>
+
+  <h2 style="font-size: 3vw; color:white; font-family: 'Courier New';">**you can also make pie chart for staked, listed, and in wallet**</h2>
+  <button onclick="myFunction()">Lkmex Rewards</button>
+  <canvas id="myChart"></canvas>
+
   </div>
 
 
 
 
-  <script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+  function myFunction(){
+  var xValues = [1,2,3,4,5,6,7,8,9,10];
+  var yValues = [120000,90000,100000];
+  
+  new Chart("myChart", {
+    type: "line",
+    data: {
+      labels: xValues,
+      datasets: [{
+        fill: false,
+        lineTension: 0,
+        backgroundColor: "rgba(0,0,255,1.0)",
+        borderColor: "blue",
+        data: yValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      scales: {
+        yAxes: [{ticks: {min: 0, max:200000}}],
+        xAxes: [{ticks: {min: 1, max:16}}],
+      }
+    }
+  });
+}
   </script>
+
+
 
 
 <!--<h1 class="heading">Data Center</h1>-->
