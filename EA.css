@@ -8,7 +8,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 10px;
-  left: 100px;
+  left: 1vw;
   color:black;
 }
 
@@ -37,13 +37,13 @@
 
 .heading4{
   color:white;
-  font-size: 1vw;
+  font-size: 1.3vw;
   font-family: Monaco;
 }
 
 .heading5{
   color:white;
-  font-size: 1.5vw;
+  font-size: 1.65vw;
   font-family: Monaco;
 }
 
@@ -52,3 +52,5 @@
   border-radius: 5px;
   padding:.3vw;
 }
+
+
