@@ -61,18 +61,39 @@ body {
 
   <h2 style="font-size: 3vw; color:white; font-family: 'Courier New';">**you can also make pie chart for staked, listed, and in wallet**</h2>
   <button onclick="myFunction()">Lkmex Rewards</button>
-  <canvas id="myChart"></canvas>
-
   </div>
 
+  <br>
+  <br>
+
+  <div style="background-color: white;">
+  <canvas id="myChart" style="max-width:45%; float:left"></canvas>
+  </div>
+
+  <div style="background-color: white;">
+  <canvas id="myChart1" style="max-width:45%; float:right"></canvas>
+  </div>
 
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
   function myFunction(){
-  var xValues = [1,2,3,4,5,6,7,8,9,10];
-  var yValues = [120000,90000,100000];
+  var xValues = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+  var yValues = [65351563.04,49255868.54,60837585, 124261786, 57452353, 56209964, 191053348.33, 175114840, 81241363, 127490087, 136375496, 208856823, 176611312, 107292029];
+  
+
+  var PrimePool = 165+168+166+168+166+164+165+152+148+143+140+140;
+  var PrimePoolAve = PrimePool/12;
+
+  var SpecialPool = 132+139+128+138+227+232+119+118+157+166+152+152;
+  var SpecialPoolAve = SpecialPool/12;
+
+
+  var xValues1 = ["Italy", "France", "Spain", "USA", "Argentina"];
+  var yValues1 = [PrimePool, SpecialPoolAve, 44, 24, 15,12];
+  var barColors = ["red", "green","blue","orange","brown"];
+
   
   new Chart("myChart", {
     type: "line",
@@ -81,20 +102,55 @@ body {
       datasets: [{
         fill: false,
         lineTension: 0,
-        backgroundColor: "rgba(0,0,255,1.0)",
-        borderColor: "blue",
+        backgroundColor: "#1FE1DE",
+        borderColor: "1ABDBB",
         data: yValues
       }]
     },
     options: {
       legend: {display: false},
+      title:{
+        display:true,
+        text: "LKmex distributed per week",fontColor:"white",fontFamily:"Courier New",fontSize:18,
+
+      },
       scales: {
-        yAxes: [{ticks: {min: 0, max:200000}}],
-        xAxes: [{ticks: {min: 1, max:16}}],
-      }
+        yAxes: [{ticks: {min: 0, max:240000000, stepSize: 40000000, fontColor:"#9FA3A3"},
+        scaleLabel: {
+          display: true,
+          labelString: 'LKmex Amount', fontColor:"white",fontFamily:"Courier New",fontSize:15,fontStyle:"bold"},
+      }],
+
+        xAxes: [{ticks: {min: 1, max:16,fontColor:"#9FA3A3"},
+        scaleLabel: {
+          display: true,
+          labelString: 'Week', fontColor:"yellow",fontColor:"white",fontFamily:"Courier New",fontSize:15,fontStyle:"bold"},
+      
+      }],
+
+      },
     }
   });
-}
+
+  new Chart("myChart1", {
+  type: "bar",
+  data: {
+    labels: xValues1,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues1
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "World Wine Production 2018",
+    }
+  }
+});
+  }
+
   </script>
 
 
