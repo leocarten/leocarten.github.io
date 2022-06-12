@@ -15,6 +15,9 @@
 
 .div1{
   background-color:rgb(0, 0, 0);
+  position: absolute;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .div2{
@@ -53,4 +56,64 @@
   padding:.3vw;
 }
 
+.chart{
+  width: 45%;
+  height: 400px;
+  padding:2%;
+  float:left;
+}
+@media only screen and (max-width: 1200px){
+  .chart{
+    width: 500px;
+    height: 250px;
+    float:left;
+  }
+}
+@media only screen and (max-width: 800px){
+  .chart{
+    width: 400px;
+    height: 400px;
+    float:left;
+    padding:5%;
+  }
+}
+@media only screen and (max-width: 400px){
+  .chart{
+    width: 300px;
+    height: 300px;
+    float:left;
+    padding:2%;
+  }
+}
+
+
+.chart1{
+  width: 45%;
+  height: 400px;
+  padding:2%;
+  float:right;
+}
+@media only screen and (max-width: 1200px){
+  .chart1{
+    width: 500px;
+    height: 250px;
+    float:left;
+  }
+}
+@media only screen and (max-width: 800px){
+  .chart1{
+    width: 400px;
+    height: 400px;
+    float:left;
+    padding:5%;
+  }
+}
+@media only screen and (max-width: 400px){
+  .chart1{
+    width: 300px;
+    height: 300px;
+    float:left;
+    padding:2%;
+  }
+}
 
