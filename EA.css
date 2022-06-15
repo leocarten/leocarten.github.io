@@ -40,17 +40,17 @@ hr.new5 {
 .heading3{
   border:.2vw solid white;
   border-radius: 30px;
-  padding:.3vw;
+  padding:.5vw;
 }
 
 .heading4{
-  color:white;
-  font-size: 1.3vw;
+  color:#EAF2F8;
+  font-size: 1.4vw;
   font-family: Monaco;
 }
 
 .heading5{
-  color:white;
+  color:#EAF2F8;
   font-size: 1.65vw;
   font-family: Monaco;
 }
@@ -58,8 +58,37 @@ hr.new5 {
 .heading6{
   border: .3vw solid white;
   border-radius: 5px;
-  padding:.3vw;
+  padding:.5vw;
+  color:#EAF2F8;
 }
+@media only screen and (max-width: 900px){
+  .heading6{
+    display:none;
+  }
+}
+
+/* these two media hide href for words */
+@media only screen and (max-width: 900px){
+  a[href="https://elrond-apes-holders-map.vercel.app"]{
+    display:none;
+  }
+}
+
+@media only screen and (max-width: 900px){
+  a[href="https://app.elrondapes.com"]{
+    display:none;
+  }
+}
+
+
+
+.heading6Good{
+  border: .3vw solid white;
+  border-radius: 5px;
+  padding:.5vw;
+  color:#EAF2F8;
+}
+
 
 .chart{
   width: 45%;
@@ -122,7 +151,6 @@ hr.new5 {
   }
 }
 
-/*This is the animated button*/
 .button {
   display: inline-block;
   border-radius: 5px;
@@ -165,3 +193,18 @@ hr.new5 {
   right: 0;
 }
 
+
+
+/*Menu button*/
+.MenuIcon{
+  color:#EAF2F8;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 1.65vw;
+}
+@media only screen and (min-width: 900px){
+  .MenuIcon{
+    display:none;
+  }
+}
