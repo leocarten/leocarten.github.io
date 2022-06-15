@@ -28,15 +28,23 @@ body {
 <a href="https://elrond-apes-holders-map.vercel.app" target="_blank">
 <!-- <h1 style="color:white; position: top; float:right; padding:1vw; font-size: 3vw; font-family: Courier New;">Leaderboard</h1> -->
 
-<h1 class="heading5" style="display: inline-block; position: top; float:right; padding:1vw; font-size: 3vw; font-family: Courier New;"><span class="heading6">Leaderboard</span></h1>
+<h1 style="display: inline-block; position: top; float:right; padding:2vw; font-size: 1.75vw; font-family: Courier New;"><span class="heading6">Leaderboard</span></h1>
 </a>
 
 <a href="https://app.elrondapes.com" target="_blank">
-  <h1 class="heading5" style="display: inline-block; position: top; float:right; padding:1vw; font-size: 3vw; font-family: Courier New;"><span class="heading6">Staking/Rarity</span></h1>
+  <h1 style="display: inline-block; position: top; float:right; padding:2vw; font-size: 1.75vw; font-family: Courier New;"><span class="heading6">Staking/Rarity</span></h1>
 
   </a>
 
 </div>
+
+  <!-- This is to test out the new button -->
+  <div class="MenuIcon">
+    <h1>Menu</h1>
+  </div>
+
+  <!-- End of button -->
+
 
 <hr class="new5">
 
@@ -56,19 +64,34 @@ body {
         </div>
         <br>
         <div>
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Total Volume: xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Volume (24h): xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Floor price: xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Floor price in USDC: xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Amount staked: xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Total listed: xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6">Total rewards distribution: xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6"> Anything else? </span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Total Volume: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Volume (24h): xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Floor price: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Floor price in USDC: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Amount staked: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Total listed: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good" id="LKmexDis"> <!--Inserted from script below--> </span></h1> 
+
+          <script>
+             //need to figure out how to insert numbers here!!
+              const yValues = [65351563.04,49255868.54,60837585, 124261786, 57452353, 56209964, 191053348.33, 175114840, 81241363, 127490087, 136375496, 208856823, 176611312, 107292029, 104279777];
+              const TotalLKmexDistribution = yValues.reduce((accumulator, value) => {
+                return accumulator + value;
+              }, 0);
+              const RoundedNum=TotalLKmexDistribution.toFixed(1);
+              document.getElementById("LKmexDis").innerHTML = 'Total LKmex Distribution: '+RoundedNum
+          </script>
+
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good"> Twitter followers: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good"> Discord Members: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good"> Anything else? </span></h1> 
         </div>
   </div>
 
   <br>
   <br>
+
+
 
   <div class="div2">
   <h2 style="font-size: 3vw; color:white; font-family: 'Courier New';">Analytics</h2>
@@ -78,7 +101,9 @@ body {
   <!-- <button onclick="myFunction()">Lkmex Rewards</button> -->
   <button onclick="myFunction()" class="button"><span>LKmex Rewards</span></button>
 
+
   </div>
+  <p id="AveLKmexPerWeek" style="color:yellow"></p>
 
   <br>
   <br>
@@ -96,30 +121,37 @@ body {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
   function myFunction(){
-  var xValues = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
-  const yValues = [65351563.04,49255868.54,60837585, 124261786, 57452353, 56209964, 191053348.33, 175114840, 81241363, 127490087, 136375496, 208856823, 176611312, 107292029];
+  var xValues = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  const yValues = [65351563.04,49255868.54,60837585, 124261786, 57452353, 56209964, 191053348.33, 175114840, 81241363, 127490087, 136375496, 208856823, 176611312, 107292029, 104279777];
+  const TotalLKmexDistribution = yValues.reduce((accumulator, value) => {
+    return accumulator + value;
+    }, 0);
+
+    document.getElementById("AveLKmexPerWeek").innerHTML = "The average total weekly Distribution of LKmex is: "+AverageLKmexRewards1; //write to the id below graphs average distribution of LKmex
+
   const AverageLKmexRewards = (yValues.reduce((a, b) => a + b, 0)) / yValues.length; //this variable works!
+  var AverageLKmexRewards1 = AverageLKmexRewards;
 
-  var PrimePool = 165+168+166+168+166+164+165+152+148+143+140+140;
-  var PrimePoolAve = PrimePool/12;
+  var PrimePool = 165+168+166+168+166+164+165+152+148+143+140+140+137;
+  var PrimePoolAve = PrimePool/13;
 
-  var SpecialPool = 132+139+128+138+227+232+119+118+157+166+152+152;
-  var SpecialPoolAve = SpecialPool/12;
+  var SpecialPool = 132+139+128+138+227+232+119+118+157+166+152+152+66;
+  var SpecialPoolAve = SpecialPool/13;
 
-  var rank1_1000 = 499+470+506+511+507+514+519+513+498+489+478+471;
-  var rank1_1000Ave = rank1_1000/12;
+  var rank1_1000 = 499+470+506+511+507+514+519+513+498+489+478+471+484;
+  var rank1_1000Ave = rank1_1000/13;
 
-  var rank1001_2500 = 979+912+1003+1032+994+976+1020+1010+987+958+956+967;
-  var rank1001_2500Ave = rank1001_2500/12;
+  var rank1001_2500 = 979+912+1003+1032+994+976+1020+1010+987+958+956+967+973;
+  var rank1001_2500Ave = rank1001_2500/13;
 
-  var rank2501_4500 = 1306+1256+1327+1337+1309+1312+1336+1325+1302+1272+1260+1268;
-  var rank2501_4500Ave = rank2501_4500/12;
+  var rank2501_4500 = 1306+1256+1327+1337+1309+1312+1336+1325+1302+1272+1260+1268+1299;
+  var rank2501_4500Ave = rank2501_4500/13;
 
-  var rank4501_7000 = 1483+1392+1511+1526+1517+1507+1546+1542+1535+1527+1493+1524;
-  var rank4501_7000Ave = rank4501_7000/12;
+  var rank4501_7000 = 1483+1392+1511+1526+1517+1507+1546+1542+1535+1527+1493+1524+1529;
+  var rank4501_7000Ave = rank4501_7000/13;
 
-  var rank7001_10000 = 1690+1554+1721+1725+1727+1725+1802+1824+1789+1793+1774+1767;
-  var rank7001_10000Ave = rank7001_10000/12;
+  var rank7001_10000 = 1690+1554+1721+1725+1727+1725+1802+1824+1789+1793+1774+1767+1786;
+  var rank7001_10000Ave = rank7001_10000/13;
 
   //Average LKmex return per pool per ape staked:
   var LKmexPerPrime = (AverageLKmexRewards*0.15)/PrimePoolAve
