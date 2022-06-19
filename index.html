@@ -28,11 +28,11 @@ body {
 <a href="https://community.elrondapes.com/" target="_blank">
 <!-- <h1 style="color:white; position: top; float:right; padding:1vw; font-size: 3vw; font-family: Courier New;">Leaderboard</h1> -->
 
-<h1 style="display: inline-block; position: top; float:right; padding:2vw; font-size: 1.75vw; font-family: Courier New;"><span class="heading6">Community Map</span></h1>
+<h1 style="display: inline-block; position: top; float:right; padding:1.75vw; font-size: 1.75vw; font-family: Courier New;"><span class="heading6">&#127758;Community Map</span></h1>
 </a>
 
 <a href="https://app.elrondapes.com" target="_blank">
-  <h1 style="display: inline-block; position: top; float:right; padding:2vw; font-size: 1.75vw; font-family: Courier New;"><span class="heading6">Staking/Rarity</span></h1>
+  <h1 style="display: inline-block; position: top; float:right; padding:1.75vw; font-size: 1.75vw; font-family: Courier New;"><span class="heading6">&#128171;Staking/Rarity</span></h1>
 
   </a>
 
@@ -43,8 +43,8 @@ body {
   <div class="dropdown">
     <button class="MenuIcon">Menu<i class="arrow right"></i></button>
     <div class="dropdown-content">
-      <a href="https://community.elrondapes.com/" target="_blank">Community Map</a>
-      <a href="https://app.elrondapes.com" target="_blank">Staking/Rarity</a>
+      <a href="https://community.elrondapes.com/" target="_blank">&#127758;Community Map</a>
+      <a href="https://app.elrondapes.com" target="_blank">&#128171;Staking/Rarity</a>
     </div>
   </div>
   <!-- End of button -->
@@ -60,19 +60,30 @@ body {
 <body>
 
   <div class="div2">
-    <h1 style="font-size: 3vw; font-family: 'Courier New'; text-decoration: underline;">General Overview</h1>
+
+    <h1 class="GeneralOverview">General Overview</h1>
       <div>
-        <h1 class="heading4" style="display: inline-block;"><span class="heading3">Offical identifier: EAPES-8f3c1f</span></h1> 
-        <h1 class="heading4" style="display: inline-block;"><span class="heading3">Royalties: 10%</span></h1> 
-        <h1 class="heading4" style="display: inline-block;"><span class="heading3">Collection size: 10,000</span></h1> 
+        <h1 class="heading4" style="display: inline-block;"><span class="heading3">&#9989;Offical identifier: EAPES-8f3c1f</span></h1> 
+        <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+        <h1 class="heading4" style="display: inline-block;"><span class="heading3">&#9989;Royalties: 10%</span></h1> 
+        <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+        <h1 class="heading4" style="display: inline-block;"><span class="heading3">&#9989;Collection size: 10,000</span></h1> 
+        <span style="padding-left:.4vw; padding-right:.4vw;"></span>
         </div>
         <br>
         <div>
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Total Volume: xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Volume (24h): xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Floor price: xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Floor price in USDC: xyz</span></h1> 
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Amount staked: xyz</span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span id="TotalVolume" class="heading6Good"></span></h1>
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+          <h1 class="heading5" style="display: inline-block;"><span id="24HourVol" class="heading6Good"></span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+          <h1 class="heading5" style="display: inline-block;"><span id="FloorPrice" class="heading6Good"></span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+          <h1 class="heading5" style="display: inline-block;"><span id="FloorPriceInUSDC" class="heading6Good"></span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+          <h1 class="heading5" style="display: inline-block;"><span id="AveSalePrice" class="heading6Good"></span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+          <h1 class="heading5" style="display: inline-block;"><span id="AmountStaked" class="heading6Good"></span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
           <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Total listed: xyz</span></h1> 
           <h1 class="heading5" style="display: inline-block;"><span class="heading6Good" id="LKmexDis"> <!--Inserted from script below--> </span></h1> 
 
@@ -256,21 +267,88 @@ body {
     }
   }
 });
+
+
+
   }
     //end of function0
 
-  function myFunction1(){
+  function myFunction2(){
     document.getElementById("AveLKmexPerWeek").innerHTML = "Sorry, this data hasn't been gathered yet :("; //write to the id below graphs average distribution of LKmex
-    document.getElementById("IDofChart").style.display = "none";
-    document.getElementById("IDofChart1").style.display = "none";
+    document.getElementById("IDofChart").style.display= "none";
+    document.getElementById("IDofChart1").style.display= "none";
+    //style.display = "none";
   }
   //end of function1
 
-  function myFunction2(){
-    document.getElementById("AveLKmexPerWeek").innerHTML = "Sorry, this data hasn't been gathered yet :("; //write to the id below graphs average distribution of LKmex
-    document.getElementById("IDofChart").style.display = "none";
-    document.getElementById("IDofChart1").style.display = "none";
+  function myFunction1(){
+    const floorPriceURL = 'https://new-api.trust.market/getFloorPrice/EAPES-8f3c1f/EGLD';
+    async function GetFloorPrice(){
+      const responce = await fetch(floorPriceURL);
+      const data = await responce.json();
+      document.getElementById("AveLKmexPerWeek").innerHTML = ("the floor price is "+data);
+    }
+    GetFloorPrice();
   }
+  // use https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show to see how to display and hide data
+  </script>
+
+  <script>
+    //API URLS
+    const floorPriceURL = 'https://new-api.trust.market/getFloorPrice/EAPES-8f3c1f/EGLD';
+    const USDCfloorPriceURL='https://api.binance.com/api/v3/ticker/price?symbol=EGLDUSDT';
+    const AmountStakedURL='https://new-api.trust.market/getOwnersByCollection/EAPES-8f3c1f';
+    const TotalVolumeURL = 'https://new-api.trust.market/getCollectionProfile/EAPES-8f3c1f';
+
+    async function GetFloorPrice(){
+      //FP using fetch method
+      const responce = await fetch(floorPriceURL);
+      const data = await responce.json();
+      document.getElementById("FloorPrice").innerHTML = ("Floor price: "+data+" EGLD");
+
+      //FP in USDC using fetch method
+      const responce1 = await fetch(USDCfloorPriceURL);
+      const data1 = await responce1.json();
+      const PlaceHolder = data1.price*data;
+      const OneDecimal = PlaceHolder.toFixed(1);
+      document.getElementById("FloorPriceInUSDC").innerHTML = ("Floor price in USDC: $"+OneDecimal);
+
+      //averageSalePrice
+      const responce5 = await fetch(TotalVolumeURL);
+      const data5 = await responce5.json();
+      const AveSalePriceInEGLD = data5.averageEgldPrice;
+      const AveSalePriceInEGLD1 = AveSalePriceInEGLD.toFixed(1);
+      document.getElementById("AveSalePrice").innerHTML = ("Ave Sale Price: "+AveSalePriceInEGLD1+" EGLD");
+
+
+      //Amount staked PLEASE FIGURE OUT
+      const responce2 = await fetch(AmountStakedURL);
+      const data2 = await responce2.json();
+      const newData=data2[0].nftsCount;
+      document.getElementById("AmountStaked").innerHTML = ("Amount Staked: "+newData+" THIS IS INCORRECT");
+    
+
+
+      //Total Volumne
+      const responce3 = await fetch(TotalVolumeURL);
+      const data3 = await responce3.json();
+      const TotVol = data3.totalEgldVolume;
+      const TotVol1 = TotVol.toFixed(1);
+      document.getElementById("TotalVolume").innerHTML = ("Total Volume: "+TotVol1+" EGLD");
+
+      //24 hour vol
+      const responce4 = await fetch(TotalVolumeURL);
+      const data4 = await responce4.json();
+      const TwoFourVol = data4.dayEgldVolume;
+      const TwoFourVol1 = TwoFourVol.toFixed(1);
+      document.getElementById("24HourVol").innerHTML = ("Total Volume(24h): "+TwoFourVol1+" EGLD");
+    }
+    
+   
+
+    //calling the functions
+    GetFloorPrice();
+
   </script>
 
 
