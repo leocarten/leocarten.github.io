@@ -43,6 +43,17 @@ hr.new5 {
   padding:.5vw;
 }
 
+.GeneralOverview{
+  font-size: 3vw; 
+  font-family: 'Courier New'; 
+  text-decoration: underline;
+}
+@media only screen and (max-width: 600px){
+  .GeneralOverview{
+    font-size: 3.5vw;;
+  }
+}
+
 
 .heading4{
   color:#EAF2F8;
@@ -51,7 +62,7 @@ hr.new5 {
 }
 @media only screen and (max-width: 600px){
   .heading4{
-    font-size: 1.6vw;;
+    font-size: 1.75vw;;
   }
 }
 
@@ -62,7 +73,7 @@ hr.new5 {
 }
 @media only screen and (max-width: 600px){
   .heading5{
-    font-size: 1.75vw;;
+    font-size: 1.95vw;;
   }
 }
 
@@ -265,7 +276,7 @@ hr.new5 {
 
 .arrow {
   border: solid white;
-  border-width: 0 3px 3px 0;
+  border-width: 0 .2vw .2vw 0;
   display: inline-block;
   padding: .4vw;
 }
