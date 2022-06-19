@@ -54,6 +54,31 @@ hr.new5 {
   }
 }
 
+/*for small mobile screens*/
+@media only screen and (max-width: 500px){
+  .GeneralOverview{
+    font-size: 3.7vw;
+  }
+  .MenuIcon{
+    font-size: 3vw;
+  }
+  .hiddenObject{
+    font-size: 2.75vw;
+  }
+  .dropdown-content{
+    font-size: 2.25vw;
+  }
+  .dropdown{
+    right: 15vw;
+  }
+  .heading4{
+    font-size: 2.25vw;
+  }
+  .heading5{
+    font-size: 2.25vw;;
+  }
+}
+
 
 .heading4{
   color:#EAF2F8;
@@ -62,7 +87,7 @@ hr.new5 {
 }
 @media only screen and (max-width: 600px){
   .heading4{
-    font-size: 1.75vw;;
+    font-size: 1.75vw;
   }
 }
 
