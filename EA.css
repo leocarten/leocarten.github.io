@@ -3,6 +3,11 @@
   Color:white;
 }
 
+.EGLDgif img{
+  max-height: 3vw;
+  max-width: 3vw;
+}
+
 hr.new5 {
   border: .15vw solid #B6D5D3;
   border-radius: 5vw;
@@ -38,7 +43,7 @@ hr.new5 {
 }
 
 .heading3{
-  border:.2vw solid white;
+  border:.2vw solid #D1E8F8;
   border-radius: 30px;
   padding:.5vw;
 }
@@ -50,35 +55,18 @@ hr.new5 {
 }
 @media only screen and (max-width: 600px){
   .GeneralOverview{
-    font-size: 3.5vw;;
+    font-size: 3.5vw;
   }
 }
 
 /*for small mobile screens*/
-@media only screen and (max-width: 500px){
+
+/*NEED TO FIX FOR SMALL SCREENS*/
+@media only screen and (max-width: 590px){
   .GeneralOverview{
-    font-size: 3.7vw;
-  }
-  .MenuIcon{
-    font-size: 3vw;
-  }
-  .hiddenObject{
-    font-size: 2.75vw;
-  }
-  .dropdown-content{
-    font-size: 2.25vw;
-  }
-  .dropdown{
-    right: 15vw;
-  }
-  .heading4{
-    font-size: 2.25vw;
-  }
-  .heading5{
-    font-size: 2.25vw;;
+    font-size: 3.8vw;
   }
 }
-
 
 .heading4{
   color:#EAF2F8;
@@ -103,7 +91,7 @@ hr.new5 {
 }
 
 .heading6{
-  border: .3vw solid white;
+  border: .3vw solid #D1E8F8;
   border-radius: 5px;
   padding:.5vw;
   color:#EAF2F8;
@@ -131,7 +119,7 @@ hr.new5 {
 
 
 .heading6Good{
-  border: .3vw solid white;
+  border: .3vw solid #D1E8F8;
   border-radius: 5px;
   padding:.5vw;
   color:#EAF2F8;
@@ -199,6 +187,8 @@ hr.new5 {
   }
 }
 
+
+
 .button {
   display: inline-block;
   border-radius: 20px;
@@ -256,7 +246,8 @@ hr.new5 {
 .MenuIcon {
   background-color: white;
   color:black;
-  font-size: 2vw;
+  font-weight: bold;
+  font-size: 2.5vw;
   font-family: "Courier New";
 }
 
@@ -270,7 +261,7 @@ hr.new5 {
   position: absolute;
   display: inline-block;
   top: 3vw;
-  right: 9vw;
+  right: 12vw;
 }
 
 .dropdown-content {
@@ -280,7 +271,7 @@ hr.new5 {
   min-width: 160px;
   box-shadow: 0vw 1vw 16px 0px #587C98;
   z-index: 1;
-  font-size: 1.75vw;
+  font-size: 2vw;
   font-family: "Courier New";
 }
 
@@ -301,9 +292,9 @@ hr.new5 {
 
 .arrow {
   border: solid white;
-  border-width: 0 .2vw .2vw 0;
+  border-width: 0 .3vw .3vw 0;
   display: inline-block;
-  padding: .4vw;
+  padding: .5vw;
 }
 
 .right {
@@ -314,16 +305,47 @@ hr.new5 {
 /*
 this is p, hidden element
 */
-.hiddenObject{
+.PageBreakers{
+  float:left;
   color:#EAF2F8;
   font-family: 'Courier New';
-  font-size: 2vw;
+  font-size: 2.5vw;
   padding:2%;
   font-weight: bold;
 }
+@media only screen and (max-width: 600px){
+  .PageBreakers{
+    font-size: 2.8vw;
+  }
+}
+
+
+/*
+.NewClassForPieChart{
+  float:left;
+  width:55vw;
+  height:55vw;
+}
+
+.TableToFloatRight{
+  float: right;
+}
+*/
 
 
 
+.NewClassForPieChart{
+  width: 45%;
+  padding:0%;
+  float:left;
+}
+
+
+td, th {
+  border: 1px solid red;
+  padding: 8px;
+  width:45%;
+}
 
 
 
