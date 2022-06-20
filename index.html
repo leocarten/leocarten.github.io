@@ -20,7 +20,10 @@ body {
 
 </head>
 
+<script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+
 <div class="div1">
+
 <a href="https://elrondapes.com" target="_blank">
 <img src="https://elrondapes.com/assets/logo.gif" class="eaLogo" alt="EA gif logo" style="max-width: 40%; max-height: 17.5%;">
 </a>
@@ -28,7 +31,7 @@ body {
 <a href="https://community.elrondapes.com/" target="_blank">
 <!-- <h1 style="color:white; position: top; float:right; padding:1vw; font-size: 3vw; font-family: Courier New;">Leaderboard</h1> -->
 
-<h1 style="display: inline-block; position: top; float:right; padding:1.75vw; font-size: 1.75vw; font-family: Courier New;"><span class="heading6">&#127758;Community Map</span></h1>
+<h1 style="display: inline-block; position: top; float:right; padding:1.75vw; font-size: 1.75vw; font-family: Courier New;"><span class="heading6">&#127760;Community Map</span></h1>
 </a>
 
 <a href="https://app.elrondapes.com" target="_blank">
@@ -43,7 +46,7 @@ body {
   <div class="dropdown">
     <button class="MenuIcon">Menu<i class="arrow right"></i></button>
     <div class="dropdown-content">
-      <a href="https://community.elrondapes.com/" target="_blank">&#127758;Community Map</a>
+      <a href="https://community.elrondapes.com/" target="_blank">&#127760;Community Map</a>
       <a href="https://app.elrondapes.com" target="_blank">&#128171;Staking/Rarity</a>
     </div>
   </div>
@@ -61,6 +64,8 @@ body {
 
   <div class="div2">
 
+
+
     <h1 class="GeneralOverview">General Overview</h1>
       <div>
         <h1 class="heading4" style="display: inline-block;"><span class="heading3">&#9989;Offical identifier: EAPES-8f3c1f</span></h1> 
@@ -72,20 +77,22 @@ body {
         </div>
         <br>
         <div>
-          <h1 class="heading5" style="display: inline-block;"><span id="TotalVolume" class="heading6Good"></span></h1>
+          <h1 class="heading5" style="display: inline-block;"><span id="TotalVolume" class="heading6Good">Loading...&#128736;</span></h1>
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
-          <h1 class="heading5" style="display: inline-block;"><span id="24HourVol" class="heading6Good"></span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span id="24HourVol" class="heading6Good">Loading...&#128736;</span></h1> 
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
-          <h1 class="heading5" style="display: inline-block;"><span id="FloorPrice" class="heading6Good"></span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span id="FloorPrice" class="heading6Good">Loading...&#128736;</span></h1> 
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
-          <h1 class="heading5" style="display: inline-block;"><span id="FloorPriceInUSDC" class="heading6Good"></span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span id="FloorPriceInUSDC" class="heading6Good">Loading...&#128736;</span></h1> 
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
-          <h1 class="heading5" style="display: inline-block;"><span id="AveSalePrice" class="heading6Good"></span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span id="AveSalePrice" class="heading6Good">Loading...&#128736;</span></h1> 
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
-          <h1 class="heading5" style="display: inline-block;"><span id="AmountStaked" class="heading6Good"></span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span id="AmountStaked" class="heading6Good">Loading...&#128736;</span></h1> 
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
           <h1 class="heading5" style="display: inline-block;"><span class="heading6Good">Total listed: xyz</span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
           <h1 class="heading5" style="display: inline-block;"><span class="heading6Good" id="LKmexDis"> <!--Inserted from script below--> </span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
 
           <script>
              //need to figure out how to insert numbers here!!
@@ -98,7 +105,9 @@ body {
           </script>
 
           <h1 class="heading5" style="display: inline-block;"><span class="heading6Good"> Twitter followers: xyz</span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
           <h1 class="heading5" style="display: inline-block;"><span class="heading6Good"> Discord Members: xyz</span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
           <h1 class="heading5" style="display: inline-block;"><span class="heading6Good"> Anything else? </span></h1> 
         </div>
   </div>
@@ -111,19 +120,33 @@ body {
   <div class="div2">
   <h2 class="GeneralOverview">Analytics</h2>
   <!-- <button onclick="myFunction()">Lkmex Rewards</button> -->
-  <button onclick="myFunction()" class="button"><span>LKmex Rewards&#128176;</span></button>
 
+
+  <style>
+   html {
+  scroll-behavior: smooth;
+}
+  </style>
+
+
+  <a href="#AveLKmexPerWeek">
+  <button onclick="myFunction()" class="button"><span>LKmex Rewards&#128176;</span></button> 
+  </a>
+
+  <a href="#Section2">
   <button onclick="myFunction1()" class="button"><span>Floor Price Data&#128200;</span></button>
+  </a>
 
-  <button onclick="myFunction2()" class="button"><span>Stakers / Listed&#9203;</span></button>
-
+  <a href="#Section3">
+  <button onclick="getUserCountFromAPIendpoint()" class="button"><span>NFTs per address&#128205;</span></button>
+  </a>
 
 
   </div>
-  <p id="AveLKmexPerWeek" class="hiddenObject"></p>
 
-
-
+ 
+  <p id="AveLKmexPerWeek" class="PageBreakers"></p>
+  
   <div class="chart" id="IDofChart">
   <canvas id="myChart"></canvas>
   </div>
@@ -133,10 +156,35 @@ body {
   </div>
 
 
+  <p id="Section2" class="PageBreakers"></p>
+
+  <p id="Section3" class="PageBreakers"></p>
+
+  <div class="NewClassForPieChart" id="IDofChart2">
+  <canvas id="myChart2"></canvas>
+  </div>
+
+<!-- FIX THIS TABLE 
+  <div class="TableToFloatRight">
+    <table>
+      <tr>
+        <th style="color:white">Rank</th>
+        <th style="color:white">Address / Smart Contract</th>
+        <th style="color:white">Amount of NFTs</th>
+      </tr>
+    </table>
+  </div>
+  -->
+
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
   function myFunction(){
+    //document.getElementById("IDofChart").style.visibility= "visible";
+    //document.getElementById("IDofChart1").style.visibility= "visible";
+    //document.getElementById("IDofChart2").style.display = "enabled";
   var xValues = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   const yValues = [65351563.04,49255868.54,60837585, 124261786, 57452353, 56209964, 191053348.33, 175114840, 81241363, 127490087, 136375496, 208856823, 176611312, 107292029, 104279777];
   const TotalLKmexDistribution = yValues.reduce((accumulator, value) => {
@@ -146,7 +194,7 @@ body {
 
   var h = (65351563.04+49255868.54+60837585+124261786+57452353+56209964+191053348.33+175114840+81241363+127490087+136375496+208856823+176611312+107292029+104279777)/15;
   var h_rounded = h.toFixed(1);
-  document.getElementById("AveLKmexPerWeek").innerHTML = "The average weekly Distribution of LKmex is: "+h_rounded; //write to the id below graphs average distribution of LKmex
+  document.getElementById("AveLKmexPerWeek").innerHTML = "&#128176;The average weekly Distribution of LKmex is: "+h_rounded; //write to the id below graphs average distribution of LKmex
 
   const AverageLKmexRewards = (yValues.reduce((a, b) => a + b, 0)) / yValues.length; //this variable works!
 
@@ -194,7 +242,7 @@ body {
         fill: false,
         lineTension: 0,
         backgroundColor: "#1FE1DE",
-        borderColor: "1ABDBB",
+        borderColor: "#1ABDBB",
         data: yValues
       }]
     },
@@ -271,25 +319,24 @@ body {
 
 
   }
+
     //end of function0
 
-  function myFunction2(){
-    document.getElementById("AveLKmexPerWeek").innerHTML = "Sorry, this data hasn't been gathered yet :("; //write to the id below graphs average distribution of LKmex
-    document.getElementById("IDofChart").style.display= "none";
-    document.getElementById("IDofChart1").style.display= "none";
-    //style.display = "none";
-  }
   //end of function1
 
   function myFunction1(){
+    //document.getElementById("IDofChart").style.visibility= "hidden";
+    //document.getElementById("IDofChart1").style.visibility= "hidden";
+    //document.getElementById("IDofChart2").style.visibility= "hidden";
     const floorPriceURL = 'https://new-api.trust.market/getFloorPrice/EAPES-8f3c1f/EGLD';
     async function GetFloorPrice(){
       const responce = await fetch(floorPriceURL);
       const data = await responce.json();
-      document.getElementById("AveLKmexPerWeek").innerHTML = ("the floor price is "+data);
+      document.getElementById("Section2").innerHTML = ("&#128200;The floor price is "+data+" EGLD... More data still needs to be gathered");
     }
     GetFloorPrice();
   }
+
   // use https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show to see how to display and hide data
   </script>
 
@@ -299,6 +346,8 @@ body {
     const USDCfloorPriceURL='https://api.binance.com/api/v3/ticker/price?symbol=EGLDUSDT';
     const AmountStakedURL='https://new-api.trust.market/getOwnersByCollection/EAPES-8f3c1f';
     const TotalVolumeURL = 'https://new-api.trust.market/getCollectionProfile/EAPES-8f3c1f';
+    //"<img src='https://styles.redditmedia.com/t5_31h4ca/styles/communityIcon_owybt6v6hoo51.jpg?format=pjpg&s=3ee9c43049c9a3e460feb6b31010c052b2db08f6' style='max-height:3vw';max-width:3vw';>";
+    const LightningSymbol='&#9889;';
 
     async function GetFloorPrice(){
       //FP using fetch method
@@ -325,7 +374,7 @@ body {
       const responce2 = await fetch(AmountStakedURL);
       const data2 = await responce2.json();
       const newData=data2[0].nftsCount;
-      document.getElementById("AmountStaked").innerHTML = ("Amount Staked: "+newData+" THIS IS INCORRECT");
+      document.getElementById("AmountStaked").innerHTML = ("Amount Staked: "+newData+" *INCORRECT*");
     
 
 
@@ -344,10 +393,92 @@ body {
       document.getElementById("24HourVol").innerHTML = ("Total Volume(24h): "+TwoFourVol1+" EGLD");
     }
     
-   
 
-    //calling the functions
+    //calling the function
     GetFloorPrice();
+
+
+    //beg of pie chart function
+    //function myFunction2(){
+    async function getUserCountFromAPIendpoint(){
+    //document.getElementById("IDofChart").style.visibility= "hidden";
+    //document.getElementById("IDofChart1").style.visibility= "hidden";
+    //document.getElementById("IDofChart2").style.visibility= "visible";
+    document.getElementById("Section3").innerHTML = "&#128205;Location of Elrond Apes on the Elrond Blockchain"; //write to the id below graphs average distribution of LKmex
+
+      //style.display = "none";
+
+    
+      const UserCountApiURL='https://new-api.trust.market/getOwnersByCollection/EAPES-8f3c1f';
+      const responceFromAPIendpoint = await fetch(UserCountApiURL);
+      const dataFromTheAPIendpoint = await responceFromAPIendpoint.json();
+      //const ownerFromApiEndpoint = dataFromTheAPIendpoint.data.map( (x)=> x.owner)
+      var initalizer=0;
+      var emptyListOfNFTsCount=[];
+      var emptyListOfNFTsOwners=[];
+      //const actualValue=0;
+
+      while (initalizer<30){
+        var OrganizedData=dataFromTheAPIendpoint[initalizer].nftsCount;
+        var OrganizedDataOfWallets=dataFromTheAPIendpoint[initalizer].owner;
+
+        console.log(OrganizedData);
+        console.log(OrganizedDataOfWallets);
+
+        emptyListOfNFTsCount.push(OrganizedData);
+        emptyListOfNFTsOwners.push(OrganizedDataOfWallets);
+        //emptyListOfNFTsCount.push(OrganizedData);
+        //console.log("Here is OrganizedData",OrganizedData);
+        initalizer+=1;
+        //console.log("Here is array of pushed data",emptyListOfNFTsCount);
+      }
+      console.log("Here is array of pushed data",emptyListOfNFTsCount);
+      //const OrganizedData=dataFromTheAPIendpoint[initalizer].nftsCount;
+
+      console.log(dataFromTheAPIendpoint);
+      //console.log(OrganizedData);
+    
+    //getUserCountFromAPIendpoint();
+
+  const dataForPie = {
+  labels: emptyListOfNFTsOwners,
+
+  datasets: [{
+    borderColor:'white',
+    hoverBackgroundColor:'#2C495E',
+    hoverBorderColor:'red',
+    borderWidth:0.4,
+    //label: 'My First Dataset',
+    data: emptyListOfNFTsCount,
+    backgroundColor: [
+      '#437986','#4B818E','#518794','#578C99','#5C909D','#6296A2','#689BA7','#6EA0AD','#75A6B1','#7BABB6','#81AFBA','#88B3BE','#90B8C2','#96BDC6','#9DC2CB',
+      '#A2C4CC','#ABCBD3','#B3D0D7','#BBD5DC','#C5DCE1','#CEE1E6','#D8E8EC','#E2EEF1','#ECF5F7','#F4FAFC','#F3F9FA','#F8FBFC','#FDFFFF','white','white',
+        ],
+    hoverOffset: 1,
+    borderJoinStyle:'round',
+  }]
+};
+
+    new Chart("myChart2", {
+    type: "pie",
+    data: dataForPie,
+    options3d: {
+      enabled: true,},
+    options: {
+      legend: {
+         display: false //This will hide
+      }
+   }
+    
+   
+  });
+    
+  }
+
+  //function calls
+  myFunction();
+  myFunction1();
+  getUserCountFromAPIendpoint();
 
   </script>
 
