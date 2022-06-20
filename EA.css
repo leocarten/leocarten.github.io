@@ -339,6 +339,12 @@ this is p, hidden element
   padding:0%;
   float:left;
 }
+@media only screen and (max-width: 600px){
+  .NewClassForPieChart{
+    width: 60%;
+  }
+}
+
 
 
 td, th {
