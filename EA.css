@@ -2,7 +2,7 @@
   text-align: center;
   Color:white;
 }
-
+ 
 .EGLDgif img{
   max-height: 3vw;
   max-width: 3vw;
@@ -274,6 +274,17 @@ hr.new5 {
   font-size: 2vw;
   font-family: "Courier New";
 }
+@media only screen and (max-width: 500px){
+  .dropdown-content{
+    font-size: 2.5vw;
+  }
+}
+@media only screen and (max-width: 500px){
+  .dropdown{
+    right: 15vw;
+  }
+}
+
 
 .dropdown-content a {
   color: white;
@@ -310,13 +321,22 @@ this is p, hidden element
   color:#EAF2F8;
   font-family: 'Courier New';
   font-size: 2.5vw;
-  padding:2%;
+  margin-left:2%;
   font-weight: bold;
 }
 @media only screen and (max-width: 600px){
   .PageBreakers{
     font-size: 2.8vw;
   }
+}
+
+.PageBreakers1{
+  float:left;
+  color:#EAF2F8;
+  font-family: 'Courier New';
+  font-size: 2vw;
+  margin-left:5%;
+  font-weight: bold;
 }
 
 
@@ -335,23 +355,76 @@ this is p, hidden element
 
 
 .NewClassForPieChart{
-  width: 45%;
-  padding:0%;
+  width: 700px;
+  height: 700px;
   float:left;
 }
-@media only screen and (max-width: 600px){
+
+
+.NewClassForPieChartAddressOnly{
+  width: 700px;
+  height: 700px;
+  float:left;
+}
+
+
+@media only screen and (max-width: 1416px){
   .NewClassForPieChart{
-    width: 60%;
+    width: 600px;
+    height: 600px;
+  }
+  .NewClassForPieChartAddressOnly{
+    width: 600px;
+    height: 600px;
   }
 }
-
-
-
-td, th {
-  border: 1px solid red;
-  padding: 8px;
-  width:45%;
+@media only screen and (max-width: 1216px){
+  .NewClassForPieChart{
+    width: 500px;
+    height: 500px;
+  }
+  .NewClassForPieChartAddressOnly{
+    width: 500px;
+    height: 500px;
+  }
 }
-
-
-
+@media only screen and (max-width: 1016px){
+  .NewClassForPieChart{
+    width: 400px;
+    height: 400px;
+  }
+  .NewClassForPieChartAddressOnly{
+    width: 400px;
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 816px){
+  .NewClassForPieChart{
+    width: 350px;
+    height: 350px;
+  }
+  .NewClassForPieChartAddressOnly{
+    width: 350px;
+    height: 350px;
+  }
+}
+@media only screen and (max-width: 716px){
+  .NewClassForPieChart{
+    width: 300px;
+    height: 300px;
+  }
+  .NewClassForPieChartAddressOnly{
+    width: 300px;
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 616px){
+  .NewClassForPieChart{
+    width: 400px;
+    height: 400px;
+  }
+  .NewClassForPieChartAddressOnly{
+    width: 400px;
+    height: 400px;
+  }
+}
