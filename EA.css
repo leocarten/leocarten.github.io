@@ -126,29 +126,29 @@ hr.new5 {
 }
 
 .FpChart{
-  width: 700px;
-  height: 700px;
+  width: 900px;
+  height: 600px;
   padding:2%;
   float:left;
 }
+
 @media only screen and (max-width: 1200px){
   .FpChart{
-    width: 600px;
-    height: 400px;
+    width: 700px;
+    height: 450px;
     float:left;
   }
 }
 @media only screen and (max-width: 800px){
   .FpChart{
-    width: 500px;
+    width: 600px;
     height: 350px;
     float:left;
-    padding:5%;
   }
 }
 @media only screen and (max-width: 400px){
   .FpChart{
-    width: 400px;
+    width: 500px;
     height: 300px;
     float:left;
     padding:1%;
