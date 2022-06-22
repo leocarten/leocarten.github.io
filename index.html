@@ -114,6 +114,8 @@ body {
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
           <h1 class="heading5" style="display: inline-block;"><span id="ApesPerWaller" class="heading6Good">Loading...&#128736;</span></h1> 
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+          <h1 class="heading5" style="display: inline-block;"><span id="TotalAmountStakedACTIVE" class="heading6Good">Loading...&#128736;</span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
 
           
 
@@ -558,6 +560,7 @@ FloorPriceGraph();
       var initalizer=0;
       var initalizer2=0;
       var initalizer3=0;
+      var initalizer4=0;
       var emptyListOfNFTsCount=[];
       var emptyListOfNFTsOwners=[];
 
@@ -565,6 +568,8 @@ FloorPriceGraph();
       var emptyListOfNFTsOwnersERD_only=[];
 
       var emptyListOfHoldersONLY=[];
+
+      var emptyListOfALL_Stakers=[];
 
       document.getElementById("TotalArrayCount").innerHTML = ("&#128290;There are currently "+LengthOfArray+" holders of Elrond Apes");
       document.getElementById("AmountOfHolders").innerHTML = ("Total Holders including Smart Contracts: "+LengthOfArray);
@@ -609,7 +614,6 @@ FloorPriceGraph();
         }
     
         //if(OrganizedDataOfWalletsONLY!='https://new-api.trust.market/getOwnersByCollection/EAPES-8f3c1f'){
-
         //}
       }
 
@@ -631,6 +635,30 @@ FloorPriceGraph();
 
         //}
       }
+
+      while (initalizer4<LengthOfArray){
+        //var OrganizedDataForHOLDERS_ONLY=dataFromTheAPIendpoint[initalizer3].nftsCount;
+        var OrganizedDataOfStakersAddress=dataFromTheAPIendpoint[initalizer4].owner;
+        var OrganizedDataOfStakersCount=dataFromTheAPIendpoint[initalizer4].nftsCount;
+
+      if(OrganizedDataOfStakersAddress=='erd1qqqqqqqqqqqqqpgq50t0ma43rr3895lq7dhgm786kdvfwlyq386qafuqhu'||OrganizedDataOfStakersAddress=='erd1qqqqqqqqqqqqqpgqytp20gzt5pzsva8mf729nfxhsyd2h0y9386qhlmtg8'||OrganizedDataOfStakersAddress=='erd1qqqqqqqqqqqqqpgqnk6e6mrs0kdsusdt7hshpql6y4pcczwu386qjzhk63'||OrganizedDataOfStakersAddress=='erd1qqqqqqqqqqqqqpgq67d2pnfg6f6td7lxq8x0rtzylhkt32gs386qh8vtv3'||OrganizedDataOfStakersAddress=='erd1qqqqqqqqqqqqqpgqz4wny33hhrnzsy4d9x3xzg749xpwe62f386qkwyw3x'||OrganizedDataOfStakersAddress=='erd1qqqqqqqqqqqqqpgq5ycqhnggkjvqal259pmzauvg6rm2f232386qfsk5lc'||OrganizedDataOfStakersAddress=='erd1qqqqqqqqqqqqqpgqjengc6lmwh2lete065ndjczsf3dns7y3386qlteynl'){
+        emptyListOfALL_Stakers.push(OrganizedDataOfStakersCount);
+          initalizer4+=1;
+        }
+        else{
+          initalizer4+=1;
+        }
+        
+      }
+      let SumOfActiveStakedApes = 0;
+      for (let i = 0; i < emptyListOfALL_Stakers.length; i++) {
+        SumOfActiveStakedApes += emptyListOfALL_Stakers[i];
+    }
+      console.log(SumOfActiveStakedApes); //this variable is equal to actively staked apes
+      //console.log(emptyListOfALL_Stakers);
+      document.getElementById("TotalAmountStakedACTIVE").innerHTML = ("Actively Staked Apes: "+SumOfActiveStakedApes);
+
+
 
       const AmountOfHolders=emptyListOfHoldersONLY.length;
       const NFTsPerWallet=10000/AmountOfHolders;
