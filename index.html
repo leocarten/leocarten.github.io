@@ -201,39 +201,42 @@ function FloorPriceGraph(){
 
       EgldCounter+=1;
     }
-    console.log(empytArrayForEGLD);
-    console.log(empytArrayForDay);
 
-    var xValues = empytArrayForEGLD;
-    var yValues = empytArrayForDay;
+
+    //var xValues = empytArrayForEGLD;
+    //var yValues = empytArrayForDay;
+
+    var xValuesInReverse=empytArrayForEGLD.reverse();
+    var yValuesInReverse=empytArrayForDay.reverse();
+
+    console.log('Array of egld '+empytArrayForEGLD);
+    console.log('Array of egld REVERSE '+empytArrayForEGLD);
 
   new Chart("ChartForFloor", {
     type: "line",
     data: {
-      labels: xValues,
+      labels: xValuesInReverse,
       datasets: [{
         fill: false,
         lineTension: 0,
         //backgroundColor: "yellow",
         borderWidth:.8,
         borderColor: "orange",
-        data: yValues,
+        data: yValuesInReverse,
         backgroundColor: 'yellow',
         pointRadius:1.5,
         pointHoverRadius:5,
-        
       }]
     },
     options: {
-
       maintainAspectRatio:false,
       legend: {display: false},
       title:{
         display:true,
-        text: "Floor Price Per Day",fontColor:"white",fontFamily:"Courier New",fontSize:18,
+        text: "Amount of Egld Per Day (TRUSTMARKET only)",fontColor:"white",fontFamily:"Courier New",fontSize:18,
       },
       scales: {
-        yAxes: [{ticks: {min: 0, max:2000, stepSize: 100, fontColor:"white",fontFamily:"Courier New"},
+        yAxes: [{ticks: {min: 0, max:1700, stepSize: 100, fontColor:"white",fontFamily:"Courier New"},
         gridLines:{
           display:true,
           color:"#052942",
@@ -361,6 +364,7 @@ FloorPriceGraph();
     data: {
       labels: xValues,
       datasets: [{
+        pointHoverRadius:5,
         fill: false,
         lineTension: 0,
         backgroundColor: "#1FE1DE",
