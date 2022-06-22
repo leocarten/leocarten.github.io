@@ -57,9 +57,6 @@ body {
 
 <!-- fix sticky image -->
 
-
-<!--Hey leo, for the borders you can make them different green or red colors depending if up or down-->
-
 <body>
 
   <div class="div2">
@@ -77,9 +74,12 @@ body {
         </div>
         <br>
         <div>
+          <h1 class="GeneralOverview">Stats (still need data from Deadrare for Tot Vol, etc.)</h1>
           <h1 class="heading5" style="display: inline-block;"><span id="TotalVolume" class="heading6Good">Loading...&#128736;</span></h1>
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
           <h1 class="heading5" style="display: inline-block;"><span id="24HourVol" class="heading6Good">Loading...&#128736;</span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+          <h1 class="heading5" style="display: inline-block;"><span id="7DayVol" class="heading6Good">Loading...&#128736;</span></h1> 
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
           <h1 class="heading5" style="display: inline-block;"><span id="FloorPrice" class="heading6Good">Loading...&#128736;</span></h1> 
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
@@ -96,7 +96,7 @@ body {
 
           <script>
              //need to figure out how to insert numbers here!!
-              const yValues = [65351563.04,49255868.54,60837585, 124261786, 57452353, 56209964, 191053348.33, 175114840, 81241363, 127490087, 136375496, 208856823, 176611312, 107292029, 104279777];
+              const yValues = [65351563.04,49255868.54,60837585, 124261786, 57452353, 56209964, 191053348.33, 175114840, 81241363, 127490087, 136375496, 208856823, 176611312, 107292029, 104279777,141106848.79];
               const TotalLKmexDistribution = yValues.reduce((accumulator, value) => {
                 return accumulator + value;
               }, 0);
@@ -108,7 +108,18 @@ body {
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
           <h1 class="heading5" style="display: inline-block;"><span class="heading6Good"> Discord Members: xyz</span></h1> 
           <span style="padding-left:.4vw; padding-right:.4vw;"></span>
-          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good"> Anything else? </span></h1> 
+          <h1 class="heading5" style="display: inline-block;"><span id="AmountOfHolders" class="heading6Good">Loading...&#128736;</span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+          <h1 class="heading5" style="display: inline-block;"><span id="AmountOfHoldersONLY" class="heading6Good">Loading...&#128736;</span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+          <h1 class="heading5" style="display: inline-block;"><span id="ApesPerWaller" class="heading6Good">Loading...&#128736;</span></h1> 
+          <span style="padding-left:.4vw; padding-right:.4vw;"></span>
+
+          
+
+          
+
+          <h1 class="heading5" style="display: inline-block;"><span class="heading6Good" style="color:yellow"> Anything else? </span></h1> 
         </div>
   </div>
 
@@ -122,6 +133,7 @@ body {
   <!-- <button onclick="myFunction()">Lkmex Rewards</button> -->
 
 
+  <!--Scroll smooth-->
   <style>
    html {
   scroll-behavior: smooth;
@@ -155,8 +167,108 @@ body {
   <canvas id="myChart1"></canvas>
   </div>
 
+  
+
 
   <p id="Section2" class="PageBreakers"></p>
+
+  <div class="FpChart" id="FloorPriceChart">
+    <canvas id="ChartForFloor"></canvas>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<script>
+//below is floor price chart
+function FloorPriceGraph(){
+  async function GraphTheFloor(){
+    const TrackFloorDataURL='https://new-api.trust.market/getCollectionVolume/EAPES-8f3c1f?before=9000&after=100';
+    const ResponceForFP_Graph = await fetch(TrackFloorDataURL);
+    const FloorDataToGraph = await ResponceForFP_Graph.json();
+    var EgldCounter=0;
+    var empytArrayForDay=[];
+    var empytArrayForEGLD=[];
+    var LengthOfFP_Array=FloorDataToGraph.length;
+
+    while (EgldCounter<LengthOfFP_Array){
+      var EgldInOneDay=FloorDataToGraph[EgldCounter].EGLDPerDay;
+      empytArrayForDay.push(EgldInOneDay);
+
+      var Days=FloorDataToGraph[EgldCounter].Day;
+      empytArrayForEGLD.push(Days);
+
+
+      EgldCounter+=1;
+    }
+    console.log(empytArrayForEGLD);
+    console.log(empytArrayForDay);
+
+    var xValues = empytArrayForEGLD;
+    var yValues = empytArrayForDay;
+
+  new Chart("ChartForFloor", {
+    type: "line",
+    data: {
+      labels: xValues,
+      datasets: [{
+        fill: false,
+        lineTension: 0,
+        //backgroundColor: "yellow",
+        borderWidth:.8,
+        borderColor: "orange",
+        data: yValues,
+        backgroundColor: 'yellow',
+        pointRadius:1.5,
+        pointHoverRadius:5,
+        
+      }]
+    },
+    options: {
+
+      maintainAspectRatio:false,
+      legend: {display: false},
+      title:{
+        display:true,
+        text: "Floor Price Per Day",fontColor:"white",fontFamily:"Courier New",fontSize:18,
+      },
+      scales: {
+        yAxes: [{ticks: {min: 0, max:2000, stepSize: 100, fontColor:"white",fontFamily:"Courier New"},
+        gridLines:{
+          display:true,
+          color:"#052942",
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Amount of Egld', fontColor:"white",fontFamily:"Courier New",fontSize:15,fontStyle:"bold"},
+      }],
+
+        xAxes: [{ticks: {min: 1, max:16,fontColor:"white",fontFamily:"Courier New"},
+        gridLines:{
+          display:true,
+          color:"#052942",
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Day', fontColor:"yellow",fontColor:"white",fontFamily:"Courier New",fontSize:15,fontStyle:"bold"},
+      
+      }],
+
+      },
+    }
+  });
+
+  }
+  GraphTheFloor();
+
+}
+FloorPriceGraph();
+
+
+//end of FP
+</script>
+
+
 
   <p id="Section3" class="PageBreakers"></p>
 
@@ -166,9 +278,14 @@ body {
   <canvas id="myChart2"></canvas>
   </div>
 
+
+
   <div class="NewClassForPieChartAddressOnly" id="IDofChart3">
     <canvas id="myChart3"></canvas>
   </div>
+
+
+
 
 <!-- FIX THIS TABLE 
   <div class="TableToFloatRight">
@@ -185,45 +302,44 @@ body {
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
   function myFunction(){
     //document.getElementById("IDofChart").style.visibility= "visible";
     //document.getElementById("IDofChart1").style.visibility= "visible";
     //document.getElementById("IDofChart2").style.display = "enabled";
-  var xValues = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-  const yValues = [65351563.04,49255868.54,60837585, 124261786, 57452353, 56209964, 191053348.33, 175114840, 81241363, 127490087, 136375496, 208856823, 176611312, 107292029, 104279777];
+  var xValues = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]; //weeks
+  const yValues = [65351563.04,49255868.54,60837585, 124261786, 57452353, 56209964, 191053348.33, 175114840, 81241363, 127490087, 136375496, 208856823, 176611312, 107292029, 104279777,141106848.79]; //amount of LKmex
   const TotalLKmexDistribution = yValues.reduce((accumulator, value) => {
     return accumulator + value;
     }, 0);
 
 
-  var h = (65351563.04+49255868.54+60837585+124261786+57452353+56209964+191053348.33+175114840+81241363+127490087+136375496+208856823+176611312+107292029+104279777)/15;
+  var h = (65351563.04+49255868.54+60837585+124261786+57452353+56209964+191053348.33+175114840+81241363+127490087+136375496+208856823+176611312+107292029+104279777+141106849)/16;
   var h_rounded = h.toFixed(1);
   document.getElementById("AveLKmexPerWeek").innerHTML = "&#128176;The average weekly Distribution of LKmex is: "+h_rounded; //write to the id below graphs average distribution of LKmex
 
   const AverageLKmexRewards = (yValues.reduce((a, b) => a + b, 0)) / yValues.length; //this variable works!
 
-  var PrimePool = 165+168+166+168+166+164+165+152+148+143+140+140+137;
-  var PrimePoolAve = PrimePool/13;
+  var PrimePool = 165+168+166+168+166+164+165+152+148+143+140+140+137+142; //amount staked in prime pool
+  var PrimePoolAve = PrimePool/14; //weeks
 
-  var SpecialPool = 132+139+128+138+227+232+119+118+157+166+152+152+66;
-  var SpecialPoolAve = SpecialPool/13;
+  var SpecialPool = 132+139+128+138+227+232+119+118+157+166+152+152+66+73;
+  var SpecialPoolAve = SpecialPool/14;
 
-  var rank1_1000 = 499+470+506+511+507+514+519+513+498+489+478+471+484;
-  var rank1_1000Ave = rank1_1000/13;
+  var rank1_1000 = 499+470+506+511+507+514+519+513+498+489+478+471+484+489;
+  var rank1_1000Ave = rank1_1000/14;
 
-  var rank1001_2500 = 979+912+1003+1032+994+976+1020+1010+987+958+956+967+973;
-  var rank1001_2500Ave = rank1001_2500/13;
+  var rank1001_2500 = 979+912+1003+1032+994+976+1020+1010+987+958+956+967+973+991;
+  var rank1001_2500Ave = rank1001_2500/14;
 
-  var rank2501_4500 = 1306+1256+1327+1337+1309+1312+1336+1325+1302+1272+1260+1268+1299;
-  var rank2501_4500Ave = rank2501_4500/13;
+  var rank2501_4500 = 1306+1256+1327+1337+1309+1312+1336+1325+1302+1272+1260+1268+1299+1306;
+  var rank2501_4500Ave = rank2501_4500/14;
 
-  var rank4501_7000 = 1483+1392+1511+1526+1517+1507+1546+1542+1535+1527+1493+1524+1529;
-  var rank4501_7000Ave = rank4501_7000/13;
+  var rank4501_7000 = 1483+1392+1511+1526+1517+1507+1546+1542+1535+1527+1493+1524+1529+1549;
+  var rank4501_7000Ave = rank4501_7000/14;
 
-  var rank7001_10000 = 1690+1554+1721+1725+1727+1725+1802+1824+1789+1793+1774+1767+1786;
-  var rank7001_10000Ave = rank7001_10000/13;
+  var rank7001_10000 = 1690+1554+1721+1725+1727+1725+1802+1824+1789+1793+1774+1767+1786+1788;
+  var rank7001_10000Ave = rank7001_10000/14;
 
   //Average LKmex return per pool per ape staked:
   var LKmexPerPrime = (AverageLKmexRewards*0.15)/PrimePoolAve
@@ -379,13 +495,13 @@ body {
       document.getElementById("AveSalePrice").innerHTML = ("Ave Sale Price: "+AveSalePriceInEGLD1+" EGLD");
 
 
+
       //Amount staked PLEASE FIGURE OUT
       const responce2 = await fetch(AmountStakedURL);
       const data2 = await responce2.json();
       const newData=data2[0].nftsCount;
       document.getElementById("AmountStaked").innerHTML = ("Amount Staked: "+newData+" *INCORRECT*");
     
-
 
       //Total Volumne
       const responce3 = await fetch(TotalVolumeURL);
@@ -400,7 +516,18 @@ body {
       const TwoFourVol = data4.dayEgldVolume;
       const TwoFourVol1 = TwoFourVol.toFixed(1);
       document.getElementById("24HourVol").innerHTML = ("Total Volume(24h): "+TwoFourVol1+" EGLD");
+
+
+      //7 day volume
+      const responce6 = await fetch(TotalVolumeURL);
+      const data6 = await responce6.json();
+      const SevenDay = data6.weekEgldVolume;
+      const SevenDayVol = SevenDay.toFixed(1);
+      document.getElementById("7DayVol").innerHTML = ("Total Volume(7day): "+SevenDayVol+" EGLD");
+
+
     }
+
     
 
     //calling the function
@@ -426,13 +553,19 @@ body {
       //const ownerFromApiEndpoint = dataFromTheAPIendpoint.data.map( (x)=> x.owner)
       var initalizer=0;
       var initalizer2=0;
+      var initalizer3=0;
       var emptyListOfNFTsCount=[];
       var emptyListOfNFTsOwners=[];
 
       var emptyListOfNFTsCountERD_only=[];
       var emptyListOfNFTsOwnersERD_only=[];
 
+      var emptyListOfHoldersONLY=[];
+
       document.getElementById("TotalArrayCount").innerHTML = ("&#128290;There are currently "+LengthOfArray+" holders of Elrond Apes");
+      document.getElementById("AmountOfHolders").innerHTML = ("Total Holders including Smart Contracts: "+LengthOfArray);
+
+
 
       //const actualValue=0;
     
@@ -452,13 +585,17 @@ body {
         //console.log("Here is array of pushed data",emptyListOfNFTsCount);
       }
 
+
+
+
       //loop for ERD wallers only 
 
       
       while (initalizer2<30){
         var OrganizedDataForWalletsONLY=dataFromTheAPIendpoint[initalizer2].nftsCount;
         var OrganizedData_WalletsONLY=dataFromTheAPIendpoint[initalizer2].owner;
-        if(OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqjengc6lmwh2lete065ndjczsf3dns7y3386qlteynl'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgq5ycqhnggkjvqal259pmzauvg6rm2f232386qfsk5lc'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqz4wny33hhrnzsy4d9x3xzg749xpwe62f386qkwyw3x'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgq67d2pnfg6f6td7lxq8x0rtzylhkt32gs386qh8vtv3'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqd9rvv2n378e27jcts8vfwynpx0gfl5ufz6hqhfy0u0'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqnk6e6mrs0kdsusdt7hshpql6y4pcczwu386qjzhk63'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgq6wegs2xkypfpync8mn2sa5cmpqjlvrhwz5nqgepyg8'){
+        //if(OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqjengc6lmwh2lete065ndjczsf3dns7y3386qlteynl'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgq5ycqhnggkjvqal259pmzauvg6rm2f232386qfsk5lc'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqz4wny33hhrnzsy4d9x3xzg749xpwe62f386qkwyw3x'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgq67d2pnfg6f6td7lxq8x0rtzylhkt32gs386qh8vtv3'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqd9rvv2n378e27jcts8vfwynpx0gfl5ufz6hqhfy0u0'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqnk6e6mrs0kdsusdt7hshpql6y4pcczwu386qjzhk63'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgq6wegs2xkypfpync8mn2sa5cmpqjlvrhwz5nqgepyg8'){
+        if(OrganizedData_WalletsONLY.includes('qqqqqq')){
           initalizer2+=1;
         }
         else{
@@ -471,9 +608,34 @@ body {
 
         //}
       }
-      //const OrganizedData=dataFromTheAPIendpoint[initalizer].nftsCount;
 
-      //console.log(OrganizedData);
+      console.log(LengthOfArray);
+      while (initalizer3<LengthOfArray){
+        //var OrganizedDataForHOLDERS_ONLY=dataFromTheAPIendpoint[initalizer3].nftsCount;
+        var OrganizedDataHolers_ONLY=dataFromTheAPIendpoint[initalizer3].owner;
+        //if(OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqjengc6lmwh2lete065ndjczsf3dns7y3386qlteynl'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgq5ycqhnggkjvqal259pmzauvg6rm2f232386qfsk5lc'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqz4wny33hhrnzsy4d9x3xzg749xpwe62f386qkwyw3x'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgq67d2pnfg6f6td7lxq8x0rtzylhkt32gs386qh8vtv3'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqd9rvv2n378e27jcts8vfwynpx0gfl5ufz6hqhfy0u0'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgqnk6e6mrs0kdsusdt7hshpql6y4pcczwu386qjzhk63'||OrganizedData_WalletsONLY=='erd1qqqqqqqqqqqqqpgq6wegs2xkypfpync8mn2sa5cmpqjlvrhwz5nqgepyg8'){
+        if(OrganizedDataHolers_ONLY.includes('qqqqqqq')){
+          initalizer3+=1;
+        }
+        else{
+        emptyListOfHoldersONLY.push(OrganizedDataHolers_ONLY)
+        initalizer3+=1;
+        }
+        
+    
+        //if(OrganizedDataOfWalletsONLY!='https://new-api.trust.market/getOwnersByCollection/EAPES-8f3c1f'){
+
+        //}
+      }
+
+      const AmountOfHolders=emptyListOfHoldersONLY.length;
+      const NFTsPerWallet=10000/AmountOfHolders;
+      const NFTsPerWalletROUNDED = NFTsPerWallet.toFixed(1);
+      
+      //below tells how many wallet addresses hold Elrond Apes
+      document.getElementById("AmountOfHoldersONLY").innerHTML = ("Total Holders Wallet addresses ONLY: "+AmountOfHolders);
+      document.getElementById("ApesPerWaller").innerHTML = ("Average amount of Apes in Wallet "+NFTsPerWalletROUNDED);
+
     
     //getUserCountFromAPIendpoint();
 
